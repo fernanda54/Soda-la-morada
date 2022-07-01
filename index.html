@@ -1,0 +1,238 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://unpkg.com/scrollreveal"></script>
+    <title>Soda la Morada</title>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-md fixed-top bg-dark ">
+
+    <ul class="nav ">
+            <li class="nav-item"><a class="nav-link" href="C.html">Carousel</a></li>
+            <li class="nav-item"><a class="nav-link" href="H.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="L.html">Link</a></li>
+            <li class="nav-item"><a class="nav-link" href="D.html">Disabled</a></li>
+            <li class="nav-item"><a class="nav-link" href="I.html">Log In</a></li>
+            <li class="nav-item"><a class="nav-link" href="Co.html">Contact Us </a></li>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+       
+    </ul>
+    </nav>
+
+    <div class="jumbotron">
+      <h1 class="display-4">Soda la Morada</h1>
+      <hr class="my-4">
+      <p>SABOR Y CALIDAD A BUEN PRECIO.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" onclick="traer()" href="#" role="button">Learn more</a>
+      </p>
+     
+      <div class="container my-5 text-center">
+        
+        <div class="mt-5" id="contenido">
+            
+        </div>
+      </div>
+      
+      <script>
+      var contenido = document.querySelector('#contenido')
+      
+      function traer() {
+      fetch('tabla.json')
+        .then(res => res.json())
+        .then(datos => {
+            
+            tabla(datos)
+        })
+      }
+      
+      function tabla(datos) {
+      
+      contenido.innerHTML = ''
+      for(let valor of datos){
+      
+        contenido.innerHTML += `
+        
+        <tr>
+            <th scope="row">${ valor.id }</th>
+            <td>${ valor.nombre }</td>
+            <td>${ valor.email }</td>
+            <td>${ valor.estado ? "Activo" : "Eliminado" }</td>
+        </tr>
+        
+        `
+      }
+      }
+      
+      </script>
+      
+      
+   
+   <div class="container">
+      
+       <div class="row">
+         <div class="col-md-4">
+           <h2>Heading</h2>
+           <img src="https://2.bp.blogspot.com/-rjFXJ50HcTE/W6PujZieesI/AAAAAAAABzk/HCUMC_DCJQ822XSHsOFWX5UaiJshG-nmACLcBGAs/s400/whopper_xtreme.png" alt="Hamburguesa de la casa" class="rounded circle"> 
+           <p>Hamburguesa de la casa sabor extremo. </p>
+           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+         </div>
+         <div class="col-md-4">
+           <h2>Heading</h2>
+           <img src="http://assets.stickpng.com/images/585abfc54f6ae202fedf2935.png" alt="Papas Fritas" class="rounded circle">
+           <p>Papas Crujientes. </p>
+           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+         </div>
+         <div class="col-md-4">
+           <h2>Heading</h2>
+           <img src="https://www.sizzlercr.com/assets/img/sliderPrincipal/chicken.png" alt="Pollo Frito" class="rounded circle">
+           <p>Nuestro Pollo Frito sabor inigualable.</p>
+           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+
+       
+           
+         </div>
+       </div>
+   
+       <hr>
+        </div>
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="table-responsive">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th class="centered">#</th>
+                            <th class="centered">Name</th>
+                            <th class="centered">UserName</th>
+                            <th class="centered">Email</th>
+                            <th class="centered">Website</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody_Users"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">MAPA</h4>
+      </div>
+      <div class="modal-body">
+        <p> MAPA PARA MAYOR FACILIDAD.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  
+</div>
+<div class="container my-5 text-center">
+
+  <div class="mt-5" id="contenido">   
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Email</th>
+          <th scope="col">Estado</th>
+      </tr>
+  </thead>
+  <tbody id="contenido">
+      
+  </tbody>
+</table>
+</div>
+</div>
+
+<script>
+var contenido = document.querySelector('#contenido')
+
+function traer() {
+fetch('tabla.json')
+  .then(res => res.json())
+  .then(datos => {
+      
+      tabla(datos)
+  })
+}
+
+function tabla(datos) {
+
+contenido.innerHTML = ''
+for(let valor of datos){
+
+  contenido.innerHTML += `
+  
+  <tr>
+      <th scope="row">${ valor.id }</th>
+      <td>${ valor.nombre }</td>
+      <td>${ valor.email }</td>
+      <td>${ valor.estado ? "Activo" : "Eliminado" }</td>
+  </tr>
+  
+  `
+}
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31435.0289628372!2d-84.1943963769043!3d9.985550008863623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fa32fcfe0c5f%3A0x5c773032646dc470!2zSGVyZWRpYSwgQmVsw6lu!5e0!3m2!1ses!2scr!4v1656638944700!5m2!1ses!2scr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+   <script src="main.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+ 
+
+
+
+
+
+</body>
+</html>
